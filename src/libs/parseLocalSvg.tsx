@@ -22,7 +22,7 @@ const parseLocalSvg = ({ local_dir }: Config) => {
     let svgStr = fs.readFileSync(currentValue, 'utf-8')
 
     svgStr = svgStr.substring(svgStr.indexOf('<svg '), svgStr.indexOf('</svg>') + 6)
-      .replace(/<!-(.*?)->/g, '')
+      .replace(/<!-(.*?)->/g, '').replace(/<title>(.*?)<\/title>/g,'').replace(/<desc>(.*?)<\/desc>/g,'');
 
     previousValue.push({ svgStr, name: path.basename(currentValue, '.svg') })
 
