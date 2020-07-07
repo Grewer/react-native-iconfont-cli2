@@ -1,12 +1,10 @@
 /* eslint-disable */
 
 import React from 'react';
-import { GProps, SvgXml } from 'react-native-svg';
+import { SvgXml } from 'react-native-svg';
 
-
-const IconWord = ({ size, color, ...rest }) => {
-  return (
-    <SvgXml xml={`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44.068" height="40.676" viewBox="0 0 44.068 40.676">
+const xml = `
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44.068" height="40.676" viewBox="0 0 44.068 40.676">
   <defs>
     <linearGradient id="linear-gradient" x1="0.537" y1="0.969" x2="0.5" gradientUnits="objectBoundingBox">
       <stop offset="0" stop-color="#68a2f1"/>
@@ -38,7 +36,12 @@ const IconWord = ({ size, color, ...rest }) => {
       <rect id="矩形_162" data-name="矩形 162" width="2.5" height="13" rx="1.25" transform="translate(99.582 1084.079) rotate(138)" fill="#fff"/>
     </g>
   </g>
-</svg>`}  width={size} height={size} {...rest} />
+</svg>
+`
+
+const IconWord = ({ size, color, ...rest }) => {
+  return (
+    <SvgXml xml={xml}  width={size} height={size} {...rest} />
   );
 };
 

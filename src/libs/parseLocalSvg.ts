@@ -26,7 +26,7 @@ const parseLocalSvg = ({ local_dir }: Config) => {
      * 去除注释,title,desc等不需要的标签
      */
     svgStr = svgStr.substring(svgStr.indexOf('<svg '), svgStr.indexOf('</svg>') + 6)
-      .replace(/<!-(.*?)->/g, '').replace(/<title>(.*?)<\/title>/g, '').replace(/<desc>(.*?)<\/desc>/g, '')
+      .replace(/<!-(.*?)->/g, '').replace(/<title>(.*?)<\/title>/g, '').replace(/<desc>(.*?)<\/desc>/g, '').replace(/(\n[\s\t]*\r*\n)/g, '\n').replace(/^[\n\r\n\t]*|[\n\r\n\t]*$/g, '')
 
     const styleType = !!~svgStr.indexOf('</style>')
 
