@@ -11,6 +11,6 @@ interface Props extends GProps, ViewProps {
   color?: string | string[];
 }
 
-declare const IconFont: FunctionComponent<Props>;
+declare const Svg: FunctionComponent<Props>;
 
-export default IconFont;
+export default Svg;

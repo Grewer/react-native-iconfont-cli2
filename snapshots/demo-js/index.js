@@ -22,4 +22,6 @@ const IconFont = ({ name, ...rest }) => {
   return null;
 };
 
-export default React.memo ? React.memo(IconFont) : IconFont;
+const Svg =  React.memo ? React.memo(IconFont) : IconFont;
+
+export default Svg
