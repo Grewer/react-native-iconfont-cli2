@@ -4,12 +4,10 @@
 import React, { FunctionComponent } from 'react';
 import { ViewProps } from 'react-native';
 import { GProps } from 'react-native-svg';
-import IconAlipay from './IconAlipay';
-import IconUser from './IconUser';
-import IconSetup from './IconSetup';
+import IconClose from './IconClose';
 import IconWord from './IconWord';
 
-export type IconNames = 'alipay' | 'user' | 'setup' | 'word';
+export type IconNames = 'close' | 'word';
 
 interface Props extends GProps, ViewProps {
   name: IconNames;
@@ -19,12 +17,8 @@ interface Props extends GProps, ViewProps {
 
 const IconFont: FunctionComponent<Props> = ({ name, ...rest }) => {
   switch (name) {
-    case 'alipay':
-      return <IconAlipay key="1" {...rest} />;
-    case 'user':
-      return <IconUser key="2" {...rest} />;
-    case 'setup':
-      return <IconSetup key="3" {...rest} />;
+    case 'close':
+      return <IconClose key="1" {...rest} />;
     case 'word':
       return <IconWord key="L1" {...rest} />;
   }

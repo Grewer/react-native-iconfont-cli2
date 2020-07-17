@@ -60,7 +60,8 @@ export const generateComponent = (data: XmlData, localSvg: ILocalSvg[], config: 
         (_, value) => value.replace(/^[-_.=+#@!~*]+(.+?)$/, '$1')
       )
       : iconId;
-    const componentName = upperFirst(camelCase(iconId));
+
+    const componentName = iconId.includes(config.trim_icon_prefix) ? upperFirst(camelCase(iconId)) : upperFirst(config.trim_icon_prefix) + upperFirst(camelCase(iconId));
 
     names.push(iconIdAfterTrim);
 
