@@ -79,7 +79,7 @@ export const generateComponent = (data: XmlData, localSvg: ILocalSvg[], config: 
 
     cases += `${whitespace(4)}case '${iconIdAfterTrim}':\n`;
 
-    cases += `${whitespace(6)}const ${componentName} = require('./${componentName}');\n`
+    cases += `${whitespace(6)}const ${componentName} = require('./${componentName}').default;\n`
     cases += `${whitespace(6)}return <${componentName} key="${index + 1}" {...rest} />;\n`;
 
     singleFile = getTemplate('SingleIcon' + jsxExtension);
@@ -120,7 +120,7 @@ export const generateComponent = (data: XmlData, localSvg: ILocalSvg[], config: 
 
     cases += `${whitespace(4)}case '${name}':\n`;
 
-    cases += `${whitespace(6)}const ${componentName} = require('./${componentName}');\n`
+    cases += `${whitespace(6)}const ${componentName} = require('./${componentName}').default;\n`
 
     cases += `${whitespace(6)}return <${componentName} key="L${index + 1}" {...rest} />;\n`;
 
