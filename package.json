@@ -1,6 +1,6 @@
 {
   "name": "@grewer/react-native-iconfont-cli",
-  "version": "2.2.8",
+  "version": "2.3.0",
   "main": "index.js",
   "keywords": [
     "iconfont",

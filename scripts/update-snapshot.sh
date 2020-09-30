@@ -3,7 +3,7 @@
 rm -rf snapshots/*
 
 cp -f ./scripts/config/demo-js.json ./iconfont.json
-npx ts-node src/commands/createIcon.ts
+npx ts-node src/commands/iconfont.ts rn
 
 cp -f ./scripts/config/demo-ts.json ./iconfont.json
-npx ts-node src/commands/createIcon.ts
+npx ts-node src/commands/iconfont.ts rn

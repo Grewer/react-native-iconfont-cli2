@@ -49,4 +49,4 @@ IconWord.defaultProps = {
   size: 18,
 };
 
-export default React.memo ? React.memo(IconWord) : IconWord;
+export default React.memo(IconWord)

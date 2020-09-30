@@ -4,8 +4,6 @@
 import React, { FunctionComponent } from 'react';
 import { ViewProps } from 'react-native';
 import { GProps } from 'react-native-svg';
-import IconClose from './IconClose';
-import IconWord from './IconWord';
 
 export type IconNames = 'close' | 'word';
 
@@ -18,14 +16,16 @@ interface Props extends GProps, ViewProps {
 const IconFont: FunctionComponent<Props> = ({ name, ...rest }) => {
   switch (name) {
     case 'close':
+      const IconClose = require('./IconClose');
       return <IconClose key="1" {...rest} />;
     case 'word':
+      const IconWord = require('./IconWord');
       return <IconWord key="L1" {...rest} />;
   }
 
   return null;
 };
 
-const Svg =  React.memo ? React.memo(IconFont) : IconFont;
+const Svg = React.memo(IconFont)
 
 export default Svg

@@ -10,7 +10,6 @@ import { getTemplate } from './getTemplate';
 import {
   replaceCases,
   replaceComponentName,
-  replaceImports,
   replaceNames,
   replaceNamesArray,
   replaceSingleIconContent,
@@ -32,7 +31,6 @@ const ATTRIBUTE_FILL_MAP = ['path'];
 export const generateComponent = (data: XmlData, localSvg: ILocalSvg[], config: Config) => {
   const svgComponents: Set<string> = new Set();
   const names: string[] = [];
-  const imports: string[] = [];
   const saveDir = path.resolve(config.save_dir);
   const jsxExtension = config.use_typescript ? '.tsx' : '.js';
   const jsExtension = config.use_typescript ? '.ts' : '.js';
@@ -81,7 +79,7 @@ export const generateComponent = (data: XmlData, localSvg: ILocalSvg[], config: 
 
     cases += `${whitespace(4)}case '${iconIdAfterTrim}':\n`;
 
-    imports.push(componentName);
+    cases += `${whitespace(6)}const ${componentName} = require('./${componentName}');\n`
     cases += `${whitespace(6)}return <${componentName} key="${index + 1}" {...rest} />;\n`;
 
     singleFile = getTemplate('SingleIcon' + jsxExtension);
@@ -122,7 +120,7 @@ export const generateComponent = (data: XmlData, localSvg: ILocalSvg[], config: 
 
     cases += `${whitespace(4)}case '${name}':\n`;
 
-    imports.push(componentName);
+    cases += `${whitespace(6)}const ${componentName} = require('./${componentName}');\n`
 
     cases += `${whitespace(6)}return <${componentName} key="L${index + 1}" {...rest} />;\n`;
 
@@ -150,7 +148,7 @@ export const generateComponent = (data: XmlData, localSvg: ILocalSvg[], config: 
   iconFile = replaceSize(iconFile, config.default_icon_size);
   iconFile = replaceCases(iconFile, cases);
   iconFile = replaceSvgComponents(iconFile, svgComponents);
-  iconFile = replaceImports(iconFile, imports);
+  // iconFile = replaceImports(iconFile, imports);
 
   if (config.use_typescript) {
     iconFile = replaceNames(iconFile, names);

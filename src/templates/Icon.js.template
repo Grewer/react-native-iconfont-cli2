@@ -2,7 +2,6 @@
 
 import React from 'react';
 #svgComponents#
-#imports#
 
 const IconFont = ({ name, ...rest }) => {
   switch (name) {
@@ -11,6 +10,6 @@ const IconFont = ({ name, ...rest }) => {
   return null;
 };
 
-const Svg =  React.memo ? React.memo(IconFont) : IconFont;
+const Svg = React.memo(IconFont)
 
 export default Svg

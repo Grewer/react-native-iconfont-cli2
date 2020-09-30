@@ -4,7 +4,6 @@
 import React, { FunctionComponent } from 'react';
 import { ViewProps } from 'react-native';
 #svgComponents#
-#imports#
 
 export type IconNames = '#names#';
 
@@ -21,6 +20,6 @@ const IconFont: FunctionComponent<Props> = ({ name, ...rest }) => {
   return null;
 };
 
-const Svg =  React.memo ? React.memo(IconFont) : IconFont;
+const Svg = React.memo(IconFont)
 
 export default Svg

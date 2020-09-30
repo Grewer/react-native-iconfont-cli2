@@ -2,20 +2,20 @@
 
 import React from 'react';
 
-import IconClose from './IconClose';
-import IconWord from './IconWord';
 
 const IconFont = ({ name, ...rest }) => {
   switch (name) {
     case 'close':
+      const IconClose = require('./IconClose');
       return <IconClose key="1" {...rest} />;
     case 'word':
+      const IconWord = require('./IconWord');
       return <IconWord key="L1" {...rest} />;
   }
 
   return null;
 };
 
-const Svg =  React.memo ? React.memo(IconFont) : IconFont;
+const Svg = React.memo(IconFont)
 
 export default Svg
